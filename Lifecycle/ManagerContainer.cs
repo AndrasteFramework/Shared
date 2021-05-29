@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Andraste.Shared.Lifecycle
 {
@@ -89,6 +88,12 @@ namespace Andraste.Shared.Lifecycle
         public IManager? GetManager(Type type)
         {
             return Managers.ContainsKey(type) ? Managers[type] : null;
+        }
+
+        // Unfortunately, we cannot bind T to extend IManager here.
+        public T? GetManager<T>() where T : class
+        {
+            return GetManager(typeof(T)) as T;
         }
     }
     #nullable restore
