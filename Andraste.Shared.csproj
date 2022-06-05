@@ -73,6 +73,7 @@
 <ItemGroup>
   <Compile Include="Lifecycle\IManager.cs" />
   <Compile Include="Lifecycle\ManagerContainer.cs" />
+  <Compile Include="ModManagement\EnabledMod.cs" />
   <Compile Include="ModManagement\Json\Features\BuiltinVfsFeature.cs" />
   <Compile Include="ModManagement\Json\Features\IFeatureParser.cs" />
   <Compile Include="ModManagement\Json\Features\VFSFeatureParser.cs" />
