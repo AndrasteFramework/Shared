@@ -75,6 +75,8 @@
   <Compile Include="Lifecycle\ManagerContainer.cs" />
   <Compile Include="ModManagement\EnabledMod.cs" />
   <Compile Include="ModManagement\Json\Features\IFeatureParser.cs" />
+  <Compile Include="ModManagement\Json\Features\Plugin\BuiltinPluginFeature.cs" />
+  <Compile Include="ModManagement\Json\Features\Plugin\PluginFeatureParser.cs" />
   <Compile Include="ModManagement\Json\Features\Vfs\BuiltinVfsFeature.cs" />
   <Compile Include="ModManagement\Json\Features\Vfs\VFSFeatureParser.cs" />
   <Compile Include="ModManagement\Json\ModInformation.cs" />
@@ -85,9 +87,6 @@
 <ItemGroup>
   <None Include="App.config" />
   <None Include="packages.config" />
-</ItemGroup>
-<ItemGroup>
-  <Folder Include="ModManagement\Json\Features\Plugin" />
 </ItemGroup>
 <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
