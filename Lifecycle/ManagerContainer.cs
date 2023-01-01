@@ -61,17 +61,18 @@ namespace Andraste.Shared.Lifecycle
             Loaded = false;
         }
 
-        public void RegisterManager(IManager instance)
+        public IManager RegisterManager(IManager instance)
         {
             Managers.Add(instance.GetType(), instance);
+            return instance;
         }
 
-        public void RegisterManagerAndLoad(IManager instance)
+        public IManager RegisterManagerAndLoad(IManager instance)
         {
             RegisterManager(instance);
             if (instance.Loaded)
             {
-                return;
+                return instance;
             }
 
             try
@@ -83,6 +84,8 @@ namespace Andraste.Shared.Lifecycle
             {
                 logger.Warn(ex, "Exception when Loading or Enabling a Manager");
             }
+
+            return instance;
         }
 
         public IManager? GetManager(Type type)
