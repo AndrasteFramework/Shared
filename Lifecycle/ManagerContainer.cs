@@ -8,7 +8,7 @@ namespace Andraste.Shared.Lifecycle
     #nullable enable
     public class ManagerContainer : IManager
     {
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         protected readonly Dictionary<Type, IManager> Managers;
 
         public ManagerContainer()
@@ -35,7 +35,7 @@ namespace Andraste.Shared.Lifecycle
                 }
                 catch (Exception ex)
                 {
-                    logger.Warn(ex, "Exception when Loading or Enabling a Manager");
+                    Logger.Warn(ex, "Exception when Loading or Enabling a Manager");
                 }
             }
 
@@ -53,7 +53,7 @@ namespace Andraste.Shared.Lifecycle
                 }
                 catch (Exception ex)
                 {
-                    logger.Warn(ex, "Exception when Unloading or Disabling a Manager");
+                    Logger.Warn(ex, "Exception when Unloading or Disabling a Manager");
                 }
             }
 
@@ -61,13 +61,13 @@ namespace Andraste.Shared.Lifecycle
             Loaded = false;
         }
 
-        public IManager RegisterManager(IManager instance)
+        public T RegisterManager<T>(T instance) where T: IManager
         {
             Managers.Add(instance.GetType(), instance);
             return instance;
         }
 
-        public IManager RegisterManagerAndLoad(IManager instance)
+        public T RegisterManagerAndLoad<T>(T instance) where T: IManager
         {
             RegisterManager(instance);
             if (instance.Loaded)
@@ -82,7 +82,7 @@ namespace Andraste.Shared.Lifecycle
             }
             catch (Exception ex)
             {
-                logger.Warn(ex, "Exception when Loading or Enabling a Manager");
+                Logger.Warn(ex, "Exception when Loading or Enabling a Manager");
             }
 
             return instance;
