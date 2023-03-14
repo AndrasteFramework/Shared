@@ -25,7 +25,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: HostDLL
+        name: DLLs
         path: |
-          Andraste.Shared\bin\Release\netstandard2.0\Andraste.Shared.dll
-          Andraste.Shared\bin\Release\netstandard2.0\Andraste.Shared.pdb
+          Andraste.Shared\bin\Release\Andraste.Shared.dll
+          Andraste.Shared\bin\Release\Andraste.Shared.pdb
