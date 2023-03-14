@@ -20,11 +20,6 @@ namespace Andraste.Shared.ModManagement
             return JsonSerializer.Deserialize<ModInformation>(fileContent, ReadingOptions);
         }
 
-        public static BuiltinVfsFeature ParseBuiltinFeature(JsonObject obj)
-        {
-            return obj.Deserialize<BuiltinVfsFeature>(ReadingOptions);
-        }
-
         public static bool Validate(ModInformation modInfo)
         {
             return modInfo.Authors != null && modInfo.Authors.Length > 0 && modInfo.Slug != null &&
