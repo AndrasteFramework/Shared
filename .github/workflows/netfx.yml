@@ -16,7 +16,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
 
     - name: Restore NuGet Packages
-      run: nuget restore Andraste.Shared.csproj
+      run: nuget restore Andraste.Shared.csproj -PackagesDirectory packages
  
     - name: Build project
       run: msbuild Andraste.Shared.csproj /p:Configuration=Release
