@@ -19,7 +19,7 @@ jobs:
       run: nuget restore Andraste.Shared.csproj -PackagesDirectory packages
  
     - name: Build project
-      run: msbuild Andraste.Shared.csproj /p:Configuration=Release
+      run: msbuild Andraste.Shared.csproj /p:Configuration=Release /p:RestorePackagesPath=packages /t:restore
  
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
