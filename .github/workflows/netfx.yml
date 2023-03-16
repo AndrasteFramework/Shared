@@ -21,6 +21,9 @@ jobs:
  
     - name: Build project
       run: msbuild Andraste.Shared/Andraste.Shared.csproj /p:Configuration=Release
+      
+    - name: Build NuGet Package
+      run: nuget pack Andraste.Shared/Andraste.Shared.csproj -PackagesDirectory packages -Prop Configuration=Release
  
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
