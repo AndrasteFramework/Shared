@@ -32,3 +32,4 @@ jobs:
         path: |
           Andraste.Shared\bin\Release\Andraste.Shared.dll
           Andraste.Shared\bin\Release\Andraste.Shared.pdb
+          Andraste.Shared.0.0.0.nupkg
