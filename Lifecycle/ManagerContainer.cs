@@ -98,6 +98,17 @@ namespace Andraste.Shared.Lifecycle
         {
             return GetManager(typeof(T)) as T;
         }
+
+        public T GetManagerOrThrow<T>() where T : class
+        {
+            var result = GetManager<T>();
+            if (result != null)
+            {
+                return result;
+            }
+            
+            throw new KeyNotFoundException("This ManagerContainer has no registered manager of type " + typeof(T));
+        }
     }
     #nullable restore
 }
