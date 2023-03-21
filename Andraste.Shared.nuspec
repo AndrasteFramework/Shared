@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Andraste.Shared</id>
+    <version>0.1.3</version>
+    <title>Andraste Shared</title>
+    <authors>MeFisto94</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://AndrasteFramework.github.io</projectUrl>
+    <description>The Shared (host and payload) library part of Andraste</description>
+    <copyright>Copyright 2023</copyright>
+    <tags>Andraste ModdingFramework</tags>
+  </metadata>
+</package>
