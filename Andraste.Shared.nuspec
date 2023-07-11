@@ -13,5 +13,6 @@
     <copyright>Copyright 2023</copyright>
     <tags>Andraste ModdingFramework</tags>
     <repository url="https://github.com/AndrasteFramework/Shared" type="git"/>
+    <readme>README.md</readme>
   </metadata>
 </package>
