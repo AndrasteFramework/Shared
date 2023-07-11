@@ -90,6 +90,7 @@
 </ItemGroup>
 <ItemGroup>
   <Content Include="Andraste.Shared.nuspec" />
+  <Content Include="README.md" />
 </ItemGroup>
 <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />

@@ -12,5 +12,6 @@
     <description>The Shared (host and payload) library part of Andraste</description>
     <copyright>Copyright 2023</copyright>
     <tags>Andraste ModdingFramework</tags>
+    <repository url="https://github.com/AndrasteFramework/Shared" type="git"/>
   </metadata>
 </package>
