@@ -15,4 +15,7 @@
     <repository url="https://github.com/AndrasteFramework/Shared" type="git"/>
     <readme>README.md</readme>
   </metadata>
+  <files>
+    <file src="README.md" />
+  </files>
 </package>
