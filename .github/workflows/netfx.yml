@@ -20,16 +20,17 @@ jobs:
       run: nuget restore Andraste.Shared/Andraste.Shared.csproj -PackagesDirectory packages
  
     - name: Build project
-      run: msbuild Andraste.Shared/Andraste.Shared.csproj /p:Configuration=Release
-      
-    - name: Build NuGet Package
-      run: nuget pack Andraste.Shared/Andraste.Shared.csproj -PackagesDirectory packages -Prop Configuration=Release
+      run: msbuild Andraste.Shared/Andraste.Shared.csproj /p:Configuration=Release /p:GeneratePackageOnBuild=true
  
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: DLLs
         path: |
-          Andraste.Shared\bin\Release\Andraste.Shared.dll
-          Andraste.Shared\bin\Release\Andraste.Shared.pdb
-          Andraste.Shared.*.nupkg
+          Andraste.Shared\bin\Release\net48\Andraste.Shared.dll
+          Andraste.Shared\bin\Release\net48\Andraste.Shared.pdb
+    - name: Upload NuPkg
+      uses: actions/upload-artifact@v3
+      with:
+        name: NuGet
+        path: Andraste.Shared\bin\Release\Andraste.Shared.*.nupkg
