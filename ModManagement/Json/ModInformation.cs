@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using System.Collections.Generic;
 using System.Text.Json.Nodes;
+using Semver;
 
 namespace Andraste.Shared.ModManagement.Json
 {
@@ -8,14 +9,14 @@ namespace Andraste.Shared.ModManagement.Json
     {
         public string Slug { get; set; }
         public string Name { get; set; }
+        public SemVersion SemanticVersion { get; set; }
         public string DisplayVersion { get; set; }
         public string Description { get; set; }
         public string[] Authors { get; set; }
         /// <summary>
-        /// Which mods need to be active in order for this mod to be eligible for activation.
-        /// NOT IMPLEMENTED YET
+        /// Map of dependent-slug to a semver range
         /// </summary>
-        public string[]? Dependencies { get; set; }
+        public Dictionary<string, string>? Dependencies { get; set; }
         public Dictionary<string, ModConfiguration> Configurations { get; set; }
     }
 

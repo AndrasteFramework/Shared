@@ -1,7 +1,8 @@
-﻿using System.Text.Json;
-using System.Text.Json.Nodes;
+﻿using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Andraste.Shared.ModManagement.Json;
-using Andraste.Shared.ModManagement.Json.Features;
+using Semver;
 
 namespace Andraste.Shared.ModManagement
 {
@@ -12,7 +13,8 @@ namespace Andraste.Shared.ModManagement
             ReadCommentHandling = JsonCommentHandling.Skip,
             AllowTrailingCommas = true,
             // Writing Option: PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            PropertyNameCaseInsensitive = true
+            PropertyNameCaseInsensitive = true,
+            Converters = { new SemverJsonConverter() }
         };
         
         public static ModInformation ParseString(string fileContent)
@@ -24,6 +26,19 @@ namespace Andraste.Shared.ModManagement
         {
             return modInfo.Authors != null && modInfo.Authors.Length > 0 && modInfo.Slug != null &&
                    modInfo.Name != null;
+        }
+    }
+
+    internal class SemverJsonConverter : JsonConverter<SemVersion>
+    {
+        public override SemVersion Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            return SemVersion.Parse(reader.GetString(), SemVersionStyles.Any);
+        }
+
+        public override void Write(Utf8JsonWriter writer, SemVersion value, JsonSerializerOptions options)
+        {
+            writer.WriteStringValue(value.ToString());
         }
     }
 }
