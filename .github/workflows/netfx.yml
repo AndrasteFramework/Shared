@@ -23,14 +23,14 @@ jobs:
       run: msbuild Andraste.Shared/Andraste.Shared.csproj /p:Configuration=Release /p:GeneratePackageOnBuild=true
  
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: DLLs
         path: |
           Andraste.Shared\bin\Release\net48\Andraste.Shared.dll
           Andraste.Shared\bin\Release\net48\Andraste.Shared.pdb
     - name: Upload NuPkg
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: NuGet
         path: Andraste.Shared\bin\Release\Andraste.Shared.*.nupkg
