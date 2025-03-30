@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Andraste.Shared.ModManagement.Json.Features
+namespace Andraste.Shared.ModManagement.Json.Features.Vfs
 {
     public class BuiltinVfsFeature
     {

@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Nodes;
 using Andraste.Shared.ModManagement.Json.Features;
+using Andraste.Shared.ModManagement.Json.Features.Vfs;
 
 namespace Andraste.Shared.ModManagement.Features
 {
