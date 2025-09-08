@@ -14,3 +14,15 @@ This repository holds the common base dependency that provides both generic
 API/Utility to be used throughout Andraste as well as hosting the data types /
 json models that are used for communication between the Host and the Payload
 libraries.
+
+## Binding Redirects
+Every dependency added here may ultimately require an App.config in the mod framework.
+This is because plugins may be compiled against older versions of this dependency
+(or not updating their dependencies), as a result we need an App.config file.
+
+My best experience so far in fighting problems after dependency upgrades was to
+follow the manual procedure outlined [here](https://nickcraver.com/blog/2020/02/11/binding-redirects/)
+Apparently using the "old" `packages.config` file, one can also use the
+`Get-Project –All | Add-BindingRedirect` command to generate those files, so
+maybe a valid strategy is to keep a dummy project with `packages.config` around,
+generate the file and copy it over from time to time...
